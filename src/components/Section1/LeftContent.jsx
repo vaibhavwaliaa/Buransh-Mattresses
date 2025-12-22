@@ -4,9 +4,11 @@ import Arrow from './Arrow'
 
 const LeftContent = () => {
   return (
-    <div className="h-full flex flex-col justify-between w-full md:w-1/3 transition-colors duration-300">
+    <div className="min-h-[40vh] md:h-full flex flex-col justify-between w-full lg:w-1/3 transition-colors duration-300">
       <HeroText />
-      <Arrow />
+      <div className='hidden md:block'>
+        <Arrow />
+      </div>
     </div>
   )
 }

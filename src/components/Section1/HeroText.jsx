@@ -6,9 +6,9 @@ const HeroText = () => {
   const isDark = theme === 'dark'
 
   return (
-    <div className="p-6 transition-colors duration-300">
+    <div className="p-4 md:p-6 transition-colors duration-300">
       <h3
-        className={`mb-7 leading-[1.1] text-5xl md:text-6xl lg:text-7xl font-bold ${
+        className={`mb-4 md:mb-7 leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${
           isDark ? 'text-slate-100' : 'text-slate-900'
         }`}
       >
@@ -18,7 +18,7 @@ const HeroText = () => {
         our segments
       </h3>
       <p
-        className={`text-lg md:text-xl w-[90%] font-medium ${
+        className={`text-sm sm:text-base md:text-lg lg:text-xl w-full md:w-[90%] font-medium leading-relaxed ${
           isDark ? 'text-slate-300' : 'text-gray-600'
         }`}
       >

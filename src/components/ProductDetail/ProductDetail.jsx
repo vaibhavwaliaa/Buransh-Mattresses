@@ -253,30 +253,30 @@ const ProductDetail = () => {
       <Navbar />
       
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <button onClick={() => navigate('/')} className="hover:text-blue-600">HOME</button>
+      <div className="max-w-7xl mx-auto px-4 py-2 md:py-4">
+        <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm text-gray-600 overflow-x-auto">
+          <button onClick={() => navigate('/')} className="hover:text-blue-600 whitespace-nowrap">HOME</button>
           <span>›</span>
-          <span className="uppercase">MATTRESS</span>
+          <span className="uppercase whitespace-nowrap">MATTRESS</span>
           <span>›</span>
-          <span className="uppercase text-gray-900">{product.fullName}</span>
+          <span className="uppercase text-gray-900 truncate">{product.fullName}</span>
         </div>
       </div>
 
       {/* Product Detail Section */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-4 py-4 md:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
           {/* Left - Image Gallery */}
           <div>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-4">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-3 md:mb-4">
               <img 
                 src={product.images[currentImageIndex]} 
                 alt={product.name}
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover"
               />
             </div>
             {product.images.length > 1 && (
-              <div className="flex gap-4">
+              <div className="flex gap-2 md:gap-4">
                 {product.images.map((img, idx) => (
                   <button
                     key={idx}
@@ -285,40 +285,40 @@ const ProductDetail = () => {
                       currentImageIndex === idx ? 'border-blue-600' : 'border-gray-200'
                     }`}
                   >
-                    <img src={img} alt={`${product.name} ${idx + 1}`} className="w-24 h-24 object-cover" />
+                    <img src={img} alt={`${product.name} ${idx + 1}`} className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-cover" />
                   </button>
                 ))}
               </div>
             )}
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-xs md:text-sm text-gray-500 mt-3 md:mt-4">
               The colour of the actual product may vary from the images shown here.
             </p>
           </div>
 
           {/* Right - Product Info */}
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.fullName}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">{product.fullName}</h1>
             
             {/* Price */}
-            <div className="flex items-baseline gap-4 mb-4">
-              <span className="text-3xl font-bold text-gray-900">₹{currentPrice.toFixed(2)}</span>
-              <span className="text-xl text-gray-400 line-through">₹{currentOriginalPrice.toFixed(2)}</span>
+            <div className="flex items-baseline gap-2 md:gap-4 mb-3 md:mb-4">
+              <span className="text-2xl sm:text-3xl font-bold text-gray-900">₹{currentPrice.toFixed(2)}</span>
+              <span className="text-lg sm:text-xl text-gray-400 line-through">₹{currentOriginalPrice.toFixed(2)}</span>
             </div>
-            <div className="mb-6">
-              <span className="text-blue-600 font-semibold">{product.discount} – (Inc. of all taxes)</span>
+            <div className="mb-4 md:mb-6">
+              <span className="text-sm md:text-base text-blue-600 font-semibold">{product.discount} – (Inc. of all taxes)</span>
             </div>
-            <p className="text-sm text-gray-600 mb-6">* Price varies based on selected size</p>
+            <p className="text-xs md:text-sm text-gray-600 mb-4 md:mb-6">* Price varies based on selected size</p>
 
             {/* Size Selector */}
-            <div className="mb-6">
-              <div className="flex justify-between items-center mb-3">
-                <label className="font-semibold text-gray-900">Size</label>
-                <button className="text-blue-600 text-sm">Size guide ⊕</button>
+            <div className="mb-4 md:mb-6">
+              <div className="flex justify-between items-center mb-2 md:mb-3">
+                <label className="text-sm md:text-base font-semibold text-gray-900">Size</label>
+                <button className="text-blue-600 text-xs md:text-sm">Size guide ⊕</button>
               </div>
               <select 
                 value={selectedSize}
                 onChange={(e) => setSelectedSize(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 md:p-3 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {sizes.map((size) => (
                   <option key={size} value={size}>{size}</option>
@@ -327,12 +327,12 @@ const ProductDetail = () => {
             </div>
 
             {/* Thickness Selector */}
-            <div className="mb-6">
-              <label className="font-semibold text-gray-900 block mb-3">Thickness</label>
+            <div className="mb-4 md:mb-6">
+              <label className="text-sm md:text-base font-semibold text-gray-900 block mb-2 md:mb-3">Thickness</label>
               <select 
                 value={selectedThickness}
                 onChange={(e) => setSelectedThickness(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 md:p-3 text-sm md:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 {thicknesses.map((thickness) => (
                   <option key={thickness} value={thickness}>{thickness}</option>
@@ -341,25 +341,25 @@ const ProductDetail = () => {
             </div>
 
             {/* Final Size Display */}
-            <div className="mb-6 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm font-semibold text-gray-700 mb-1">Final size selected</p>
-              <p className="text-gray-900">72" x 30" x 6" | 182.9 cm x 76.2 cm x 15.0 cm</p>
+            <div className="mb-4 md:mb-6 p-3 md:p-4 bg-blue-50 rounded-lg">
+              <p className="text-xs md:text-sm font-semibold text-gray-700 mb-1">Final size selected</p>
+              <p className="text-sm md:text-base text-gray-900">72" x 30" x 6" | 182.9 cm x 76.2 cm x 15.0 cm</p>
             </div>
 
             {/* Quantity */}
-            <div className="mb-6">
-              <label className="font-semibold text-gray-900 block mb-3">Quantity</label>
-              <div className="flex items-center gap-4">
+            <div className="mb-4 md:mb-6">
+              <label className="text-sm md:text-base font-semibold text-gray-900 block mb-2 md:mb-3">Quantity</label>
+              <div className="flex items-center gap-3 md:gap-4">
                 <button 
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 border border-gray-300 rounded-lg hover:bg-gray-100"
+                  className="w-9 h-9 md:w-10 md:h-10 border border-gray-300 rounded-lg hover:bg-gray-100 text-lg"
                 >
                   −
                 </button>
-                <span className="text-lg font-semibold">{quantity}</span>
+                <span className="text-base md:text-lg font-semibold min-w-[30px] text-center">{quantity}</span>
                 <button 
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 border border-gray-300 rounded-lg hover:bg-gray-100"
+                  className="w-9 h-9 md:w-10 md:h-10 border border-gray-300 rounded-lg hover:bg-gray-100 text-lg"
                 >
                   +
                 </button>
@@ -367,7 +367,7 @@ const ProductDetail = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-3 md:mb-4">
               <button 
                 onClick={() => {
                   addToCart({ 
@@ -380,7 +380,7 @@ const ProductDetail = () => {
                     selectedThickness: selectedThickness
                   })
                 }}
-                className="flex-1 bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="flex-1 bg-blue-600 text-white py-3 md:py-4 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-700 transition-colors"
               >
                 ADD TO CART
               </button>
@@ -404,7 +404,7 @@ const ProductDetail = () => {
                     }
                   })
                 }}
-                className="flex-1 bg-gray-900 text-white py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="flex-1 bg-gray-900 text-white py-3 md:py-4 rounded-lg text-sm md:text-base font-semibold hover:bg-gray-800 transition-colors"
               >
                 BUY NOW
               </button>
@@ -421,7 +421,7 @@ const ProductDetail = () => {
                   image: product.images[0]
                 })
               }}
-              className="w-full border-2 border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors mb-4"
+              className="w-full border-2 border-gray-300 text-gray-700 py-2.5 md:py-3 rounded-lg text-sm md:text-base font-semibold hover:bg-gray-50 transition-colors mb-3 md:mb-4"
             >
               Add to Compare
             </button>
@@ -429,39 +429,39 @@ const ProductDetail = () => {
             {/* Contact Button */}
             <button 
               onClick={scrollToFooter}
-              className="w-full border-2 border-blue-600 text-blue-600 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors mb-6"
+              className="w-full border-2 border-blue-600 text-blue-600 py-2.5 md:py-3 rounded-lg text-sm md:text-base font-semibold hover:bg-blue-50 transition-colors mb-4 md:mb-6"
             >
               Check for the delivery details
             </button>
 
             {/* Features */}
-            <div className="border-t pt-6">
-              <h3 className="font-bold text-lg mb-4">Key Features</h3>
+            <div className="border-t pt-4 md:pt-6">
+              <h3 className="font-bold text-base md:text-lg mb-3 md:mb-4">Key Features</h3>
               <ul className="space-y-2">
                 {product.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">✓</span>
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-blue-600 mt-1 text-sm md:text-base">✓</span>
+                    <span className="text-sm md:text-base text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Description */}
-            <div className="border-t pt-6 mt-6">
-              <h3 className="font-bold text-lg mb-3">Description</h3>
-              <p className="text-gray-700 leading-relaxed">{product.description}</p>
+            <div className="border-t pt-4 md:pt-6 mt-4 md:mt-6">
+              <h3 className="font-bold text-base md:text-lg mb-2 md:mb-3">Description</h3>
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">{product.description}</p>
             </div>
           </div>
         </div>
 
         {/* Features Section */}
-        <div className="mt-16 bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="mt-8 md:mt-16 bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 md:mb-8">Features</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
             {product.detailedFeatures.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0">
+              <div key={idx} className="flex items-start gap-3 md:gap-4">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-blue-600 flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {feature.icon === 'firm' && (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -484,29 +484,29 @@ const ProductDetail = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
+                  <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1">{feature.title}</h3>
                 </div>
               </div>
             ))}
           </div>
 
           {/* What Goes Inside Section */}
-          <div className="border-t pt-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">What goes inside</h2>
-            <div className="flex items-center gap-4 mb-8 bg-green-50 p-4 rounded-lg">
+          <div className="border-t pt-6 md:pt-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 md:mb-6">What goes inside</h2>
+            <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 bg-green-50 p-3 md:p-4 rounded-lg">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow">
-                  <span className="text-green-600 font-bold text-sm">neem</span>
-                  <span className="text-gray-700 text-xs">fresche</span>
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-lg flex items-center justify-center shadow">
+                  <span className="text-green-600 font-bold text-xs md:text-sm">neem</span>
+                  <span className="text-gray-700 text-[10px] md:text-xs">fresche</span>
                 </div>
               </div>
-              <p className="text-gray-700">
+              <p className="text-xs md:text-base text-gray-700">
                 Is an anti-microbial technology integrated in all our products to protect you from dust mites, allergies and breathing disorders.
               </p>
             </div>
 
             {/* Mattress Layers Diagram */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&auto=format&fit=crop" 
@@ -514,47 +514,47 @@ const ProductDetail = () => {
                   className="w-full rounded-lg shadow-lg"
                 />
               </div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold">
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold text-sm">
                     1
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Premium knitted fabric</h4>
-                    <p className="text-sm text-gray-600">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-1">Premium knitted fabric</h4>
+                    <p className="text-xs md:text-sm text-gray-600">
                       Known for its smooth texture and high strength, knitted fabric adds to the plush feel, is tear resistant and easy to maintain.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold text-sm">
                     2
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Profiled Impression & Sleepwell Quiltec® quilting</h4>
-                    <p className="text-sm text-gray-600">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-1">Profiled Impression & Sleepwell Quiltec® quilting</h4>
+                    <p className="text-xs md:text-sm text-gray-600">
                       The use of Sleepwell ingenious profiled Impressions and Quiltec® foam together in quilting offers a luxurious cushy surface for plush comfort.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold text-sm">
                     3
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">High-density foam layers</h4>
-                    <p className="text-sm text-gray-600">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-1">High-density foam layers</h4>
+                    <p className="text-xs md:text-sm text-gray-600">
                       Multiple layers of premium foam provide optimal support and comfort for a restful sleep experience.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 font-semibold text-sm">
                     4
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Support base layer</h4>
-                    <p className="text-sm text-gray-600">
+                    <h4 className="text-sm md:text-base font-semibold text-gray-900 mb-1">Support base layer</h4>
+                    <p className="text-xs md:text-sm text-gray-600">
                       The foundation layer ensures durability and provides the necessary support for proper spinal alignment.
                     </p>
                   </div>
