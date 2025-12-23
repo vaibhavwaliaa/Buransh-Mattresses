@@ -5,7 +5,10 @@ import { CartProvider } from './context/CartContext'
 import Home from './components/Home'
 import ProductDetail from './components/ProductDetail/ProductDetail'
 import Checkout from './components/Checkout/Checkout'
+import AllMattresses from './components/AllMattresses/AllMattresses'
+import Accessories from './components/Accessories/Accessories'
 import FloatingQueryButton from './components/FloatingQueryButton'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   const [theme, setTheme] = useState(() => {
@@ -35,6 +38,7 @@ const App = () => {
   return (
     <ThemeContext.Provider value={contextValue}>
       <CartProvider>
+        <ScrollToTop />
         <div
           className={`min-h-screen transition-colors duration-300 ${
             isDark ? 'bg-slate-950 text-slate-100' : 'bg-white text-slate-900'
@@ -44,6 +48,8 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/product/:productName" element={<ProductDetail />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/mattresses" element={<AllMattresses />} />
+            <Route path="/accessories" element={<Accessories />} />
           </Routes>
           <FloatingQueryButton />
         </div>

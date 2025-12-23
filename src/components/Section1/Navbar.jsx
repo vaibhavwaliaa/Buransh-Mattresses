@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className='hidden lg:flex items-center space-x-2'>
           <button onClick={handleHomeClick} className='py-2 px-4 xl:px-6 uppercase rounded-full tracking-wide text-sm hover:bg-sky-100 hover:text-sky-700 transition-colors'>Home</button>
           <button onClick={() => scrollToSection('section2')} className='py-2 px-4 xl:px-6 uppercase rounded-full tracking-wide text-sm hover:bg-sky-100 hover:text-sky-700 transition-colors'>Mattress</button>
-          <button className='py-2 px-4 xl:px-6 uppercase rounded-full tracking-wide text-sm hover:bg-sky-100 hover:text-sky-700 transition-colors'>Accessories</button>
+          <button onClick={() => { navigate('/accessories'); setIsMobileMenuOpen(false); }} className='py-2 px-4 xl:px-6 uppercase rounded-full tracking-wide text-sm hover:bg-sky-100 hover:text-sky-700 transition-colors'>Accessories</button>
           <button onClick={scrollToFooter} className='py-2 px-4 xl:px-6 uppercase rounded-full tracking-wide text-sm hover:bg-sky-100 hover:text-sky-700 transition-colors'>About Us</button>
         </div>
 
@@ -125,7 +125,7 @@ const Navbar = () => {
             <div className='flex flex-col space-y-4'>
               <button onClick={handleHomeClick} className='text-left py-3 px-4 uppercase font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-700 rounded-lg transition-colors'>Home</button>
               <button onClick={() => scrollToSection('section2')} className='text-left py-3 px-4 uppercase font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-700 rounded-lg transition-colors'>Mattress</button>
-              <button className='text-left py-3 px-4 uppercase font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-700 rounded-lg transition-colors'>Accessories</button>
+              <button onClick={() => { navigate('/accessories'); setIsMobileMenuOpen(false); }} className='text-left py-3 px-4 uppercase font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-700 rounded-lg transition-colors'>Accessories</button>
               <button onClick={scrollToFooter} className='text-left py-3 px-4 uppercase font-semibold text-gray-700 hover:bg-sky-50 hover:text-sky-700 rounded-lg transition-colors'>About Us</button>
               <button onClick={scrollToFooter} className='bg-black py-3 px-4 uppercase rounded-lg text-white font-semibold hover:bg-gray-800 transition-colors text-center mt-4'>Contact Us</button>
             </div>

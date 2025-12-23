@@ -2,7 +2,7 @@ import React from 'react'
 
 const MattressCard = ({ name, image, description, onButtonClick }) => {
   return (
-    <div className="flex-shrink-0 w-64 sm:w-72 md:w-80 h-[380px] sm:h-96 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col">
+    <div className="w-full max-w-[340px] sm:max-w-xs md:w-64 md:max-w-none lg:w-80 h-[380px] sm:h-96 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col">
       {/* Image Container - Space for adding image */}
       <div className="w-full h-44 sm:h-48 bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
         {image ? (
